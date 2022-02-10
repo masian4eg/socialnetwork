@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+posts
+{% endblock title %}
+
+{% block content %)
+
+<div class="ui grid">
+    <div class="row">
+        <div class="eleven wide column">
+            {% for obj in qs %}
+                <div class="ui fluid card">
+                    <div class="content">
+                        {{obj.content}}
+                    </div>
+                    <div class="content">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="post_id" value={{obj.id}}>
+                            <button type="submit" class="ui primary button">like</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="five wide column">
+            Form
+        </div>
+    </div>
+</div>
+
+{% endblock content %)
